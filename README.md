@@ -170,9 +170,18 @@ Do not upload the `.env` file to GitHub.
 
 ### Dashboard
 
+<img width="1895" height="885" alt="Screenshot 2026-09-24 004201" src="https://github.com/user-attachments/assets/6c19b0ab-c08d-4614-b9fd-8ffd737cdeee" />
+
 ### Project Board
 
+<img width="677" height="653" alt="Screenshot 2026-09-24 004240" src="https://github.com/user-attachments/assets/2cdccef9-9f5f-4b1e-8d93-c83ac316d855" />
+
 ### Task Details
+
+<img width="1870" height="862" alt="Screenshot 2026-09-24 004220" src="https://github.com/user-attachments/assets/b80d7bf7-fa92-4fbf-8b9c-a8f819c13fda" />
+
+<img width="827" height="793" alt="Screenshot 2026-09-24 004336" src="https://github.com/user-attachments/assets/68aeeedb-e6d0-4695-a6cc-78f3cadb70a1" />
+
 
 ## Future Improvements
 
