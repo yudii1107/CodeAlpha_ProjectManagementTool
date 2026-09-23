@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Task Diary</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page">
+
+    <header class="dashboard-navbar">
+        <a href="dashboard.html" class="dashboard-logo">Task Diary</a>
+
+        <nav class="dashboard-nav">
+            <span id="userName"></span>
+            <button id="logoutButton">Logout</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+
+        <section class="dashboard-welcome">
+            <div>
+                <span class="dashboard-label">YOUR WORKSPACE</span>
+                <h1>Welcome back, <span id="welcomeName"></span> 👋</h1>
+                <p>Keep your projects organized and your work moving forward.</p>
+            </div>
+
+            <button id="newProjectButton" class="primary-button">
+                + New Project
+            </button>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <span>Projects</span>
+                <strong id="projectCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Total Tasks</span>
+                <strong id="taskCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>In Progress</span>
+                <strong id="progressCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Completed</span>
+                <strong id="completedCount">0</strong>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <div class="section-top">
+                <div>
+                    <span class="dashboard-label">PROJECTS</span>
+                    <h2>My Projects</h2>
+                </div>
+            </div>
+
+            <div id="projectsGrid" class="projects-grid"></div>
+        </section>
+
+    </main>
+
+    <div id="projectModal" class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close" id="closeModal">×</button>
+
+            <span class="dashboard-label">NEW PROJECT</span>
+            <h2>Create a project</h2>
+
+            <form id="projectForm">
+                <label>Project Name</label>
+                <input
+                    type="text"
+                    id="projectName"
+                    placeholder="Enter project name"
+                    required
+                >
+
+                <label>Description</label>
+                <textarea
+                    id="projectDescription"
+                    placeholder="What is this project about?"
+                ></textarea>
+
+                <button type="submit" class="primary-button">
+                    Create Project
+                </button>
+            </form>
+
+            <div id="projectMessage"></div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

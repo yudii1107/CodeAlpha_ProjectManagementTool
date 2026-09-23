@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Task Diary</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="project-page">
+
+    <header class="dashboard-navbar">
+        <a href="dashboard.html" class="dashboard-logo">Task Diary</a>
+
+        <nav class="dashboard-nav">
+            <span id="userName"></span>
+            <button id="logoutButton">Logout</button>
+        </nav>
+    </header>
+
+    <main class="project-container">
+
+        <section class="project-header">
+            <div>
+                <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+
+                <span class="dashboard-label">PROJECT</span>
+
+                <h1 id="projectName">Loading...</h1>
+
+                <p id="projectDescription"></p>
+            </div>
+
+            <div class="project-actions">
+                <button id="membersButton" class="secondary-button">
+                    Members
+                </button>
+
+                <button id="newTaskButton" class="primary-button">
+                    + Add Task
+                </button>
+            </div>
+        </section>
+
+        <section class="board">
+
+            <div class="board-column">
+                <div class="column-header">
+                    <div>
+                        <h3>To Do</h3>
+                        <span id="todoCount">0 tasks</span>
+                    </div>
+                </div>
+
+                <div id="todoTasks" class="task-list"></div>
+            </div>
+
+            <div class="board-column">
+                <div class="column-header">
+                    <div>
+                        <h3>In Progress</h3>
+                        <span id="progressTaskCount">0 tasks</span>
+                    </div>
+                </div>
+
+                <div id="progressTasks" class="task-list"></div>
+            </div>
+
+            <div class="board-column">
+                <div class="column-header">
+                    <div>
+                        <h3>Review</h3>
+                        <span id="reviewCount">0 tasks</span>
+                    </div>
+                </div>
+
+                <div id="reviewTasks" class="task-list"></div>
+            </div>
+
+            <div class="board-column">
+                <div class="column-header">
+                    <div>
+                        <h3>Done</h3>
+                        <span id="doneCount">0 tasks</span>
+                    </div>
+                </div>
+
+                <div id="doneTasks" class="task-list"></div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="taskModal" class="modal-overlay">
+
+        <div class="modal">
+
+            <button class="modal-close" id="closeTaskModal">×</button>
+
+            <span class="dashboard-label">NEW TASK</span>
+
+            <h2>Create a task</h2>
+
+            <form id="taskForm">
+
+                <label>Task Title</label>
+
+                <input type="text" id="taskTitle" placeholder="Enter task title" required>
+
+                <label>Description</label>
+
+                <textarea id="taskDescription" placeholder="Describe the task"></textarea>
+
+                <label>Priority</label>
+
+                <select id="taskPriority">
+                    <option value="LOW">Low</option>
+                    <option value="MEDIUM" selected>Medium</option>
+                    <option value="HIGH">High</option>
+                </select>
+
+                <label>Status</label>
+
+                <select id="taskStatus">
+                    <option value="TODO">To Do</option>
+                    <option value="IN PROGRESS">In Progress</option>
+                    <option value="REVIEW">Review</option>
+                    <option value="DONE">Done</option>
+                </select>
+
+                <label>Due Date</label>
+
+                <input type="date" id="taskDueDate">
+
+                <label>Assign To</label>
+
+                <select id="taskAssignee">
+                    <option value="">Unassigned</option>
+                </select>
+
+                <button type="submit" class="primary-button">
+                    Create Task
+                </button>
+
+            </form>
+
+            <div id="taskMessage"></div>
+
+        </div>
+
+    </div>
+
+    <div id="taskDetailsModal" class="modal-overlay">
+
+        <div class="modal task-details-modal">
+
+            <button class="modal-close" id="closeTaskDetails">×</button>
+
+            <span class="dashboard-label">TASK DETAILS</span>
+
+            <h2 id="detailTaskTitle">Task</h2>
+
+            <p id="detailTaskDescription" class="task-detail-description"></p>
+
+            <div class="task-detail-grid">
+
+                <div>
+                    <span>Priority</span>
+                    <strong id="detailTaskPriority"></strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong id="detailTaskStatus"></strong>
+                </div>
+
+                <div>
+                    <span>Assigned To</span>
+                    <strong id="detailTaskAssignee"></strong>
+                </div>
+
+                <div>
+                    <span>Due Date</span>
+                    <strong id="detailTaskDueDate"></strong>
+                </div>
+
+            </div>
+
+            <div class="task-detail-actions">
+
+                <button id="editTaskButton" class="secondary-button">
+                    Edit Task
+                </button>
+
+                <button id="deleteTaskButton" class="delete-button">
+                    Delete Task
+                </button>
+
+            </div>
+
+            <div class="comments-section">
+
+                <span class="dashboard-label">COMMENTS</span>
+
+                <div id="commentsList" class="comments-list"></div>
+
+                <form id="commentForm" class="comment-form">
+
+                    <input type="text" id="commentInput" placeholder="Write a comment..." required>
+
+                    <button type="submit" class="primary-button">
+                        Comment
+                    </button>
+
+                </form>
+
+                <div id="commentMessage"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="editTaskModal" class="modal-overlay">
+
+        <div class="modal">
+
+            <button class="modal-close" id="closeEditTask">×</button>
+
+            <span class="dashboard-label">EDIT TASK</span>
+
+            <h2>Edit task</h2>
+
+            <form id="editTaskForm">
+
+                <label>Task Title</label>
+
+                <input type="text" id="editTaskTitle" required>
+
+                <label>Description</label>
+
+                <textarea id="editTaskDescription" placeholder="Describe the task"></textarea>
+
+                <label>Priority</label>
+
+                <select id="editTaskPriority">
+                    <option value="LOW">Low</option>
+                    <option value="MEDIUM">Medium</option>
+                    <option value="HIGH">High</option>
+                </select>
+
+                <label>Status</label>
+
+                <select id="editTaskStatus">
+                    <option value="TODO">To Do</option>
+                    <option value="IN PROGRESS">In Progress</option>
+                    <option value="REVIEW">Review</option>
+                    <option value="DONE">Done</option>
+                </select>
+
+                <label>Due Date</label>
+
+                <input type="date" id="editTaskDueDate">
+
+                <label>Assign To</label>
+
+                <select id="editTaskAssignee">
+                    <option value="">Unassigned</option>
+                </select>
+
+                <button type="submit" class="primary-button">
+                    Save Changes
+                </button>
+
+            </form>
+
+            <div id="editTaskMessage"></div>
+
+        </div>
+
+    </div>
+
+    <div id="membersModal" class="modal-overlay">
+
+        <div class="modal members-modal">
+
+            <button class="modal-close" id="closeMembers">×</button>
+
+            <span class="dashboard-label">PROJECT MEMBERS</span>
+
+            <h2>Manage members</h2>
+
+            <form id="memberForm">
+
+                <label>Member Email</label>
+
+                <input type="email" id="memberEmail" placeholder="Enter member email" required>
+
+                <button type="submit" class="primary-button">
+                    Add Member
+                </button>
+
+            </form>
+
+            <div id="memberMessage"></div>
+
+            <div class="members-list" id="membersList"></div>
+
+        </div>
+
+    </div>
+
+    <script src="js/project.js"></script>
+
+</body>
+
+</html>

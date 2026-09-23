@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Task Diary</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-container">
+        <div class="auth-brand">
+            <a href="index.html">Task Diary</a>
+        </div>
+
+        <div class="auth-card">
+            <span class="auth-label">WELCOME BACK</span>
+            <h1>Sign in to Task Diary</h1>
+            <p>Continue managing your projects and tasks.</p>
+
+            <form id="loginForm">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+
+                <button type="submit">Sign In</button>
+            </form>
+
+            <div id="loginMessage"></div>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <a href="register.html">Create account</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Task Diary</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-container">
+        <div class="auth-brand">
+            <a href="index.html">Task Diary</a>
+        </div>
+
+        <div class="auth-card">
+            <span class="auth-label">GET STARTED</span>
+            <h1>Create your account</h1>
+            <p>Start organizing your projects and tasks with Task Diary.</p>
+
+            <form id="registerForm">
+                <label>Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Create a password" required>
+
+                <button type="submit">Create Account</button>
+            </form>
+
+            <div id="registerMessage"></div>
+
+            <p class="auth-switch">
+                Already have an account?
+                <a href="login.html">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
